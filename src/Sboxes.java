@@ -139,5 +139,4 @@ public class Sboxes {
 		"8644213e", "b7dc59d0", "7965291f", "ccd6fd43", "41823979", "932bcdf6", "b657c34d", "4edfd282",
 		"7ae5290c", "3cb9536b", "851e20fe", "9833557e", "13ecf0b0", "d3ffb372", "3f85c5c1", "0aef7ed2"
 	};
-
 }

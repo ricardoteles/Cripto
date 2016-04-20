@@ -1,20 +1,23 @@
 public class Ep {
-	public static void main(String[] args) {
-//    	Constante cte = new Constante();
-//
-//    	cte.geracaoConstantes();
-//    	cte.imprimeMAtriz();
-//    	cte.geracaoConstantes();
-//    	cte.imprimeMAtriz();
+	public static void parser(String[] args){
+		String modo = args[0];
+		String arqEntrada = args[2];
+		String arqSaida = args[4];
+		String senha = args[6];
+		
+		System.out.println(args.length);
+		System.out.println(modo); // modo
+		System.out.println(arqEntrada); // arq entrada
+		System.out.println(arqSaida); // arq saida
+		System.out.println(senha); // senha
+	}
 	
-		long a = 2132142;
-		long b = 12131324;
+	public static void main(String[] args) {
+//		parser(args);
 		
-		Funcoes f = new Funcoes(a, 26, b); 
+		K128 k = new K128();
 		
-		f.f1();
-		f.f2();
-		f.f3();
+		k.k128("011010101000010000010110101010000100000101101010100001000001011010101000010000010110101010000"+
+				"10000010110101010000100000100000110");
 	}	
 }
-
