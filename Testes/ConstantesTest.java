@@ -1,19 +1,19 @@
-import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 
 public class ConstantesTest {
 
 	@Test
 	public void testGeraConstantes() {
-		Constantes cte = new Constantes();
-		cte.geraConstantes();
+		Constantes.geraConstantes();
 		
-		assertTrue("Constantes ok", cte.ConstR[0].equals("01011"));
-		assertTrue("Constantes ok", cte.ConstR[1].equals("11110"));
-		assertTrue("Constantes ok", cte.ConstR[2].equals("10001"));
-		assertTrue("Constantes ok", cte.ConstR[3].equals("00100"));
+		//funcao de teste
+	    for (int i = 0; i < 12; i++){
+    		for (int j = 0; j < 4; j++){
+				System.out.print(BaseNumerica.binToDecLong(Constantes.ConstM[i][j])+"    ");
+			}
+    		System.out.println("");
+    	}
+		System.out.println();		
 	}
 
 }

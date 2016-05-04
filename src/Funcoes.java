@@ -1,7 +1,7 @@
 public class Funcoes {
-	long s1_i1, s2_i2, s3_i3, s4_i4; 
+	static long s1_i1, s2_i2, s3_i3, s4_i4; 
 	
-    private void achaI (long X, int KR5, long KM32) {
+    static private void achaI (long X, int KR5, long KM32) {
     	String I1, I2, I3, I4;
     	
     	// calcular I
@@ -22,14 +22,14 @@ public class Funcoes {
     	int i4 = Integer.parseInt(BaseNumerica.binToDec(I4));
     	
     	// achar s1_i1, s2_i2, s3_i3 e s4_i4 
-    	this.s1_i1 = Long.parseLong(BaseNumerica.hexToDecLong(Sboxes.S1[i1]));
-    	this.s2_i2 = Long.parseLong(BaseNumerica.hexToDecLong(Sboxes.S2[i2]));
-    	this.s3_i3 = Long.parseLong(BaseNumerica.hexToDecLong(Sboxes.S3[i3]));
-    	this.s4_i4 = Long.parseLong(BaseNumerica.hexToDecLong(Sboxes.S4[i4]));
+    	s1_i1 = Long.parseLong(BaseNumerica.hexToDecLong(Sboxes.S1[i1]));
+    	s2_i2 = Long.parseLong(BaseNumerica.hexToDecLong(Sboxes.S2[i2]));
+    	s3_i3 = Long.parseLong(BaseNumerica.hexToDecLong(Sboxes.S3[i3]));
+    	s4_i4 = Long.parseLong(BaseNumerica.hexToDecLong(Sboxes.S4[i4]));
     }
     
     // TODO: testar calculo do Y
-    public String f1(long X, int KR5, long KM32) {
+    static public String f1(long X, int KR5, long KM32) {
     	achaI(X, KR5, KM32);
     	
     	// calcular Y
@@ -41,7 +41,7 @@ public class Funcoes {
     }
 
     // TODO: testar calculo do Y
-	public String f2(long X, int KR5, long KM32) {
+    static public String f2(long X, int KR5, long KM32) {
 		achaI(X, KR5, KM32);
     	
 		// calcular Y
@@ -53,7 +53,7 @@ public class Funcoes {
     }
 	
     // TODO: testar calculo do Y
-	public String f3(long X, int KR5, long KM32) {	
+    static public String f3(long X, int KR5, long KM32) {	
 		achaI(X, KR5, KM32);
     	
 		// calcular Y
