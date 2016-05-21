@@ -5,20 +5,19 @@ public class K128 {
 	static String A,B,C,D;
 	
 	public void k128(String bloco){
-		X = bloco;
-		System.out.println("X :"+X);	
+		X = bloco;	
 		
 		for (int i = 0; i < 12; i++) {
 			X = umaIteracao(i);
 		}
-		System.out.println("cripto = "+X);
+		System.out.println(X);	// CIPHER TEXT
 	}
 	
 	public String umaIteracao(int i){
 		long a,b,c,d;	
 		long km32;
 		int kr5;
-		
+			
 		a = Long.parseLong(BaseNumerica.binToDecLong(X.substring(0, 32)));
     	b = Long.parseLong(BaseNumerica.binToDecLong(X.substring(32, 64)));
     	c = Long.parseLong(BaseNumerica.binToDecLong(X.substring(64, 96)));
@@ -60,7 +59,7 @@ public class K128 {
 		for (int i = 11; i >= 0; i--) {
 			Y = umaIteracaoInv(i);
 		}
-		System.out.println("decripto = "+Y);
+		System.out.println(Y);	//PLAIN TEXT
 	}
 	
 	public String umaIteracaoInv(int i){

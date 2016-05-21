@@ -19,6 +19,13 @@ public class BaseNumerica {
 		return bin;
 	}
 	
+	//criei depois
+	static String decToHexLong (String dec) {
+		long v = Long.parseLong(dec);
+		String bin = Long.toString(v, 16);
+		return bin;
+	}
+	
 	static String hexToDecLong (String hexadec) {
 		long v = Long.parseLong(hexadec, 16);
 		String dec = Long.toString(v, 10);
@@ -34,6 +41,13 @@ public class BaseNumerica {
 	static String binToDecLong (String binary) {
 		long v = Long.parseLong(binary, 2);
 		String dec = Long.toString(v, 10);
+		return dec;
+	}
+	
+	//criei depois
+	static String binToHexLong (String binary) {
+		long v = Long.parseLong(binary, 2);
+		String dec = Long.toString(v, 16);
 		return dec;
 	}
 }

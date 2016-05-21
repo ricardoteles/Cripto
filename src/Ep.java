@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class Ep {
 	public static void parser(String[] args){
 		String modo = args[0];
@@ -12,14 +14,20 @@ public class Ep {
 		System.out.println(senha); // senha
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 //		parser(args);
+//		CBC.leituraEscritaArq("./bin/entrada.txt", "./bin/saida.txt");
 		
-		Chaves.geraSubChaves("aaaaaabbbb1qazxs");	//senha
+		System.out.println("senhamalucasenha:\n");
+		
+		Chaves.geraSubChaves("senhamalucasenha");
+		
 		K128 k = new K128();
+			
+		String plain = "10001001100101101001001011011111110000011101111110011010100100101001111010011100100011001111010111111111111111111111111111110011";
 		
-		k.k128("01100001011000100110001101100100011001010110011001100111011010000110000101100010011000110110010001100101011001100110011101101000");
-	
-		k.k128Inv("01101110101010011011111100000110010110010010100001000000000000110001101011000001010101001100100010011000001001110001001101010000");
+		k.k128(plain);
+		k.k128Inv("00110000001110001011010101111001110110110110000011010001010111000110010100110000001011000111101010001000011010110000011001101000");
+		
 	}	
 }
