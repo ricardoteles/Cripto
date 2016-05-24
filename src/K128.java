@@ -4,13 +4,13 @@ public class K128 {
 	static String Y;
 	static String A,B,C,D;
 	
-	public void k128(String bloco){
+	public String k128(String bloco){
 		X = bloco;	
 		
 		for (int i = 0; i < 12; i++) {
 			X = umaIteracao(i);
 		}
-		System.out.println(X);	// CIPHER TEXT
+		return X;		// CIPHER TEXT
 	}
 	
 	public String umaIteracao(int i){
@@ -53,13 +53,13 @@ public class K128 {
     	return X;
 	}
 	
-	public void k128Inv(String bloco){
+	public String k128Inv(String bloco){
 		Y = bloco;
 			
 		for (int i = 11; i >= 0; i--) {
 			Y = umaIteracaoInv(i);
 		}
-		System.out.println(Y);	//PLAIN TEXT
+		return Y;	//PLAIN TEXT
 	}
 	
 	public String umaIteracaoInv(int i){

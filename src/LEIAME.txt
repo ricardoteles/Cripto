@@ -1,0 +1,48 @@
+Nome: Ricardo Oliveira Teles 
+NUSP: 7991444
+
+*************************************** 
+* Uma breve descrição de cada arquivo *
+*************************************** 
+
+BaseNumerica.java
+=================
+
+Chaves.java 
+===========
+
+Constantes.java
+===============
+
+Ep.java
+=======
+
+Funcoes.java
+============
+
+K128.java
+=========
+
+Operacoes.java
+==============
+
+Sboxes.java
+===========
+
+
+************************************ 
+* Como usar o programa executável? *
+************************************ 
+
+
+
+******************************* 
+* Informações sobre a máquina *
+*******************************
+
+- qual computador, compilador e sistema operacional foi usado (modelo, versão, etc...)
+
+************************************* 
+* Como compilar os arquivos fontes? *
+*************************************
+

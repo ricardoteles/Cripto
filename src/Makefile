@@ -5,6 +5,7 @@ JC = javac
 	$(JC) $(JFLAGS) $*.java
 
 CLASSES = \
+		Arquivos.java \
         BaseNumerica.java \
 		Chaves.java \
 		Constantes.java \

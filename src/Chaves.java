@@ -10,7 +10,7 @@ public class Chaves {
 			
 		for(int i = 0; i <= 11; i++){
 			geraChaveIntermediaria(i);
-
+			
 			KR5[i][0] = Ki[i].substring(27, 32);			
 			KR5[i][1] = Ki[i].substring(59, 64);
 			KR5[i][2] = Ki[i].substring(91, 96);
@@ -23,9 +23,23 @@ public class Chaves {
 		}			
 	}
 	
+	public static String charBinario (String str){
+		String bin, K = "";
+		int caracter;
+		
+		for(int i = 0; i < str.length(); i++){
+			caracter = str.charAt(i);
+			bin = Integer.toString(caracter, 2);
+			bin = Operacoes.completaZerosEsquerda(bin, 8);
+			K += bin;
+		}
+		
+		return K;
+	}
+	
 	private static void chaveInicial(String senha) {
     	Constantes.geraConstantes();
-		String K = CBC.charBinario(senha);
+		String K = charBinario(senha);
 					
 		String cte = Operacoes.completaZerosEsquerda((BaseNumerica.hexToBinLong("5A827999")),128);		
 		
