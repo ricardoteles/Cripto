@@ -28,7 +28,7 @@ public class Arquivos {
                     else{
                         Y = k.k128(Operacoes.xor128(X, Y));      // demais iteracoes do CBC
                     }
-                    writeFile(Y, filePath);
+                    writeFile(Y, filePath, StandardOpenOption.APPEND);
                 }
                 X = "";
             }            
@@ -36,7 +36,7 @@ public class Arquivos {
     }
 
     // funcao inversa do CBC
-    public static void CBCInv() throws IOException{
+    public static void CBCInv() throws IOException {
         byte[] fileBytes = readFile(Ep.arqEntrada);
         Path filePath = Paths.get(Ep.arqSaida);
         K128 k = new K128();
@@ -57,7 +57,7 @@ public class Arquivos {
 	        		else{
 	        			X = Operacoes.xor128(k.k128Inv(Y), Yant);
 	        		}
-            		writeFile(X, filePath);
+            		writeFile(X, filePath, StandardOpenOption.APPEND);
             	}
         		Yant = Y;
             	Y = "";
@@ -66,7 +66,7 @@ public class Arquivos {
     }
 
     
-	public static void writeFile(String b, Path filePath) throws IOException{
+	public static void writeFile(String b, Path filePath, StandardOpenOption opcao) throws IOException{
         byte[] fileBytes = new byte[16];
        
         for (int i = 0; i < fileBytes.length; i++) {
@@ -75,11 +75,17 @@ public class Arquivos {
             fileBytes[i] = (byte) Integer.parseInt(c, 2);
         }
        
-        Files.write(filePath, fileBytes, StandardOpenOption.APPEND);
+        Files.write(filePath, fileBytes, opcao);
     }
 	
 	public static byte[] readFile(String fileName) throws IOException {
         Path filePath = Paths.get(fileName);
         return Files.readAllBytes(filePath);
     }
+	
+	public static void geraArqSaida(String fileName, byte[] fileBytes) throws IOException {
+        Path filePath = Paths.get(fileName);
+        Files.write(filePath, fileBytes);
+    }
+		
 }  
