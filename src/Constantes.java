@@ -4,7 +4,7 @@ public class Constantes {
 	static String ConstM[][] = new String[12][4];
 	static String ConstR[][] = new String[12][4];
 	
-	// gera as as constantes ConstR e ConstM
+	// gera as constantes ConstR e ConstM
     public static void geraConstantes() {
     	for (int i = 0; i < 12; i++){
 	    	for (int j = 0; j < 4; j++) {

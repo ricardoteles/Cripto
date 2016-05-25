@@ -5,6 +5,7 @@ public class Chaves {
 	static String KR5[][] = new String[12][4];
 	static String KM32[][] = new String[12][4];
 	
+	// gera as subchaves
 	public static void geraSubChaves(String senha) {
 		chaveInicial(senha);
 			
@@ -23,7 +24,8 @@ public class Chaves {
 		}			
 	}
 	
-	public static String charBinario (String str){
+	// converte a senha em binario
+	private static String charBinario (String str){
 		String bin, K = "";
 		int caracter;
 		
@@ -37,6 +39,7 @@ public class Chaves {
 		return K;
 	}
 	
+	// atribui um valor inicial, k[0], de acordo com a senha
 	private static void chaveInicial(String senha) {
     	Constantes.geraConstantes();
 		String K = charBinario(senha);
@@ -46,6 +49,7 @@ public class Chaves {
 		Ki[0] = Operacoes.xor128(K, cte);
 	}
 	
+	// gera chave intermediaria
 	private static void geraChaveIntermediaria(int i) { 
 		long a,b,c,d;
 		

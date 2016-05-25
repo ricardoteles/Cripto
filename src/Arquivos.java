@@ -14,25 +14,28 @@ public class Arquivos {
         K128 k = new K128();
         String X = "";
         String Y = "";
+        Chaves.geraSubChaves(Ep.senha);
         
         for (int i = 0; i < fileBytes.length; i++) {
-        	X += String.format("%8s", Integer.toBinaryString(fileBytes[i] & 0xFF)).replace(' ', '0');
+            // converte um byte em uma string binaria de 8 bits e concatena-a 16 vezes 
+            X += String.format("%8s", Integer.toBinaryString(fileBytes[i] & 0xFF)).replace(' ', '0');
 
-        	if (i % 16 == 15){
-        		if(X.length() == 128) {						//TODO: verificar se < 128 bits 
-	        		if(i == 15){
-	        			Y = k.k128(Operacoes.xor128(X, VI));
-	        		}
-	        		else{
-	        			Y = k.k128(Operacoes.xor128(X, Y));
-	        		}
-            		writeFile(Y, filePath);
-            	}
-            	X = "";
+            if (i % 16 == 15){
+                if(X.length() == 128) {                     //TODO: verificar se < 128 bits 
+                    if(i == 15){                                 // primeira iteracao do CBC
+                        Y = k.k128(Operacoes.xor128(X, VI));
+                    }
+                    else{
+                        Y = k.k128(Operacoes.xor128(X, Y));      // demais iteracoes do CBC
+                    }
+                    writeFile(Y, filePath);
+                }
+                X = "";
             }            
         }        
     }
 
+    // funcao inversa do CBC
     public static void CBCInv() throws IOException{
         byte[] fileBytes = readFile(Ep.arqEntrada);
         Path filePath = Paths.get(Ep.arqSaida);
@@ -40,8 +43,10 @@ public class Arquivos {
         String X = "";
         String Y = "";
         String Yant = "";
+        Chaves.geraSubChaves(Ep.senha);
         
         for (int i = 0; i < fileBytes.length; i++) {
+            // converte um byte em uma string binaria de 8 bits e concatena-a 16 vezes 
         	Y += String.format("%8s", Integer.toBinaryString(fileBytes[i] & 0xFF)).replace(' ', '0');
 
         	if (i % 16 == 15){

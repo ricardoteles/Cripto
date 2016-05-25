@@ -1,15 +1,15 @@
 public class Operacoes {
 	
-	// funcao que coloca zero a esquerda para respeitar o num de bits
-    static String completaZerosEsquerda(String num, int numBits){ 	
-    	while(num.length() < numBits){
+	// completa a String num com zeros a esquerda ate chegar ao tamanho desejado
+    static String completaZerosEsquerda(String num, int tamanho){ 	
+    	while(num.length() < tamanho){
     		num = "0"+num; 
     	}
     	
     	return num;
     }
     
-    // rotaciona para a esquerda dist posicoes
+    // rotaciona a String s para a esquerda dist posicoes
     static String rotateLeft(String s, int dist){
 		String num;
 		
@@ -34,6 +34,7 @@ public class Operacoes {
     	return x;
     }
     
+    // xor entre duas String
     static String xor128(String a, String b){
     	String result = "";
     	

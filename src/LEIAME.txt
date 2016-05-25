@@ -5,34 +5,72 @@ NUSP: 7991444
 * Uma breve descrição de cada arquivo *
 *************************************** 
 
+Arquivos.java
+=============
+	Contem os métodos de leitura e escrita em arquivos e também lidam com o modo CBC e o inverso do modo CBC. 	
+
 BaseNumerica.java
 =================
+	Contém métodos que convertem números de uma base númerica para outra base. No entanto, esses números são representados por String. 
 
 Chaves.java 
 ===========
+	Contém os métodos que geram as subchaves e as chaves intermediárias. Além disso, contém o método charBinario que converte a 'senha' para binario e o método chaveInicial que atribui o valor ao k[0] (conforme enunciado).  
 
 Constantes.java
 ===============
+	Contém o método que gera as constantes ConstR e ConstM, conforme pedido no enunciado
 
 Ep.java
 =======
+	Contém o main e é quem lida de parsear os parâmetros passado na linha de comando. Além disso, contém o método montaSenha que trunca a senha (caso seja maior que 16) ou concatena a senha (caso seja menor que 16)
 
 Funcoes.java
 ============
+	Contém as funções f1, f2 e f3 e	o método achaI, o qual calcula o I e acha os valores das S-boxes, que serão usados pelas funcoes f1, f2 e f3.
 
 K128.java
 =========
+	Contém os métodos k128 e umaIteracao, usados para criptografar, e os métodos k128Inv e umaIteracaoInv, para descriptografar.
 
 Operacoes.java
 ==============
+	Contém os métodos: somaMod32 e subtracaoMod32 (conforme a notação no enunciado do ep), rotateLeft(rotação circular para a esquerda), completaZerosEsquerda (completa a String "num" com zeros a esquerda até chegar ao tamanho desejado), xor (aplica um xor entre duas String).
 
 Sboxes.java
 ===========
+	Contém 4 vetores do tipo String (S1, S2, S3 e S4), cada um representando uma S-box.
+
+
+
+************************************* 
+* Como compilar os arquivos fontes? *
+*************************************
+	Para compilar os arquivos fontes basta abrir um terminal e ir até o diretório deste ep. Depois 
+disso, digite make:
+
+	$ make 
+
 
 
 ************************************ 
 * Como usar o programa executável? *
 ************************************ 
+	Após ter compilado os arquivos fontes, o programa é executado por meio de um dos seguintes modos:
+
+	Modo (1) Criptografar arquivos:
+		java Ep -c -i <arquivo de entrada> -o <arquivo de saida> -p <senha> -a
+	
+	Modo (2) Decriptografar arquivos:
+		java Ep -d -i <arquivo de entrada> -o <arquivo de saida> -p <senha>
+
+	Modo (3) Calcular aleatoriedade pelo método 1
+		java Ep -1 -i <arquivo de entrada> -p <senha>
+				
+	Modo (4) Calcular aleatoriedade pelo método 1
+		java Ep -2 -i <arquivo de entrada> -p <senha>
+
+A opção '-a' após a senha, faz com que o programa grave brancos no lugar do arquivos de entrada e delete-o.
 
 
 
@@ -40,9 +78,11 @@ Sboxes.java
 * Informações sobre a máquina *
 *******************************
 
-- qual computador, compilador e sistema operacional foi usado (modelo, versão, etc...)
+Computador
+	Arquitetura:	x86_64
+	CPUs	   :	4
 
-************************************* 
-* Como compilar os arquivos fontes? *
-*************************************
+compilador:			  javac 1.8.0_91
+sistema operacional:  Ubuntu precise (12.04.5 LTS)
+
 

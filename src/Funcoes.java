@@ -1,6 +1,7 @@
 public class Funcoes {
 	static long s1_i1, s2_i2, s3_i3, s4_i4; 
 	
+    // calcula o I e acha os valores nas S-boxes usadas pelas funcoes f1, f2 e f3
     static private void achaI (long X, int KR5, long KM32) {
     	String I1, I2, I3, I4;
     	
@@ -28,7 +29,6 @@ public class Funcoes {
     	s4_i4 = Long.parseLong(BaseNumerica.hexToDecLong(Sboxes.S4[i4]));
     }
     
-    // TODO: testar calculo do Y
     static public String f1(long X, int KR5, long KM32) {
     	achaI(X, KR5, KM32);
     	
@@ -40,7 +40,6 @@ public class Funcoes {
     	return Operacoes.completaZerosEsquerda(BaseNumerica.decToBinLong(Long.toString(Y)),32);
     }
 
-    // TODO: testar calculo do Y
     static public String f2(long X, int KR5, long KM32) {
 		achaI(X, KR5, KM32);
     	
@@ -52,7 +51,6 @@ public class Funcoes {
     	return Operacoes.completaZerosEsquerda(BaseNumerica.decToBinLong(Long.toString(Y)),32);
     }
 	
-    // TODO: testar calculo do Y
     static public String f3(long X, int KR5, long KM32) {	
 		achaI(X, KR5, KM32);
     	
