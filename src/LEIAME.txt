@@ -23,7 +23,7 @@ Constantes.java
 
 Ep.java
 =======
-	Contém o main e é quem lida de parsear os parâmetros passado na linha de comando. Além disso, contém o método montaSenha que trunca a senha (caso seja maior que 16) ou concatena a senha (caso seja menor que 16)
+	Contém o main e é quem lida de parsear os parâmetros passado na linha de comando. Além disso, contém o método montaSenha que trunca a senha (caso seja maior que 16) ou concatena a senha (caso seja maior que 8 e menor que 16), fazendo as verificações da quantidade de letras e algarismos decimais
 
 Funcoes.java
 ============
@@ -52,7 +52,6 @@ disso, digite make:
 	$ make 
 
 
-
 ************************************ 
 * Como usar o programa executável? *
 ************************************ 
@@ -64,14 +63,26 @@ disso, digite make:
 	Modo (2) Decriptografar arquivos:
 		java Ep -d -i <arquivo de entrada> -o <arquivo de saida> -p <senha>
 
-	Modo (3) Calcular aleatoriedade pelo método 1
+	Modo (3) Calcular aleatoriedade pelo método 1:		[NÃO IMPLEMENTADO!]
 		java Ep -1 -i <arquivo de entrada> -p <senha>
 				
-	Modo (4) Calcular aleatoriedade pelo método 1
+	Modo (4) Calcular aleatoriedade pelo método 2:		[NÃO IMPLEMENTADO!]
 		java Ep -2 -i <arquivo de entrada> -p <senha>
 
 A opção '-a' após a senha, faz com que o programa grave brancos no lugar do arquivos de entrada e delete-o.
 
+
+************** 
+* Executável *
+************** 
+
+Caso não queira compilar com o make, esse diretorio contém um executável "ep.jar" e para executá-lo, basta abrir o terminal e digitar:
+
+$ java -jar ep.jar <um dos modos acima>
+
+EX:
+
+$ java -jar ep.jar -c -i <arquivo de entrada> -o <arquivo de saida> -p <senha> -a
 
 
 ******************************* 
@@ -86,3 +97,18 @@ compilador:			  javac 1.8.0_91
 sistema operacional:  Ubuntu precise (12.04.5 LTS)
 
 
+************************** 
+* Informações adicionais *
+**************************
+
+- Foi usada a plataforma Eclipse (Juno Service Release 2) 
+- Não foi implementada a medição da aleatoriedade (Modo 3 e 4)
+- As vezes, ao decriptografar um arquivo que não é múltiplo de 16 bytes, o arquivo resultante é mostrado em números hexadecimais (conferido na tabela ASCII).
+- Em arquivos que não são múltiplos de 128 bits, os últimos 4 bytes do último bloco foi usado para armazenar o tamanho do arquivo.
+
+
+********** 
+* TESTES *
+**********
+
+Foram feitos 3 testes com arquivos de texto: dois arquivos entradas maiores (ENT1 e ENT2[múltiplo de 128 bits]) e um com arquivo de entrada menor (ENT3). A criptografia desses arquivos são, respectivamente: SAI1, SAI2 e SAI3. Após isso, foi feita a decriptografia desses 3 arquivos: SAI1.1, SAI2.1 e SAI3.1, respectivamente.
